@@ -12,4 +12,4 @@ COPY --from=build /app/app.jar ./app.jar
 
 EXPOSE 8081
 
-CMD ["sh", "-c", "java -Dserver.port=${PORT:-8081} -jar app.jar"]
+CMD ["sh", "-c", "java -XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0 -Dserver.port=${PORT:-8081} -jar app.jar"]
