@@ -24,7 +24,8 @@ public class CorsConfig {
         java.util.Set<String> originSet = new java.util.LinkedHashSet<>(Arrays.asList(
             "http://localhost:5173",
             "http://localhost:5174",
-            "https://quick-fix-frontend-9hfu.vercel.app"
+            "https://quick-fix-frontend-9hfu.vercel.app",
+            "https://*.vercel.app"
         ));
 
         if (allowedOrigins != null && !allowedOrigins.isBlank()) {
@@ -34,7 +35,7 @@ public class CorsConfig {
                     .forEach(originSet::add);
         }
 
-        config.setAllowedOrigins(new java.util.ArrayList<>(originSet));
+        config.setAllowedOriginPatterns(new java.util.ArrayList<>(originSet));
 
         config.setAllowedMethods(Arrays.asList(
             "GET", "POST", "PUT", "PATCH",
